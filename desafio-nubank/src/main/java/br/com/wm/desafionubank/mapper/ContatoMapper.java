@@ -17,19 +17,6 @@ public class ContatoMapper {
 	    return contato;
 	}
 	
-	public static Contato toModel(ContatoDTO contatoDTO) {
-	    Contato contato = new Contato();
-	    contato.setId(contatoDTO.getId());
-	    contato.setTelefone(contatoDTO.getTelefone());
-	    contato.setEmail(contatoDTO.getEmail());
-	    
-	    Cliente cliente = new Cliente();
-	    cliente.setId(contatoDTO.getClienteId());
-	    contato.setCliente(cliente);
-	    
-	    return contato;
-	}
-	
 	public static ContatoDTO fromModel(Contato contato) {
 	    ContatoDTO dto = new ContatoDTO();
 	    dto.setId(contato.getId());

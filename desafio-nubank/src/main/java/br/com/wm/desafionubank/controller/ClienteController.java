@@ -18,6 +18,7 @@ import br.com.wm.desafionubank.dto.ContatoDTO;
 import br.com.wm.desafionubank.mapper.ClienteMapper;
 import br.com.wm.desafionubank.model.Cliente;
 import br.com.wm.desafionubank.service.ClienteService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -28,6 +29,7 @@ public class ClienteController {
 	@Autowired
 	private ClienteService clienteService;
 	
+	@Transactional
 	@PostMapping
 	public ResponseEntity<ClienteDTO> salvarCliente(@RequestBody @Valid ClienteDTO dto) {
 		Cliente clienteSalvo = clienteService.salvarCliente(dto);

@@ -27,22 +27,22 @@ public class ClienteService {
 	}
 	
 	public List<ClienteDTO> listarTodos() {
-		List<ClienteDTO> clienteResponseDTOs = clienteRepository.findAll().stream()
+		List<ClienteDTO> clienteDTOs = clienteRepository.findAll().stream()
 				.map(ClienteMapper::fromModel)
 				.collect(Collectors.toList());
 		
-		return clienteResponseDTOs;	
+		return clienteDTOs;	
 	}
 	
 	public List<ContatoDTO> listarContatosPorCliente(Long clienteId) {
 		Cliente cliente = clienteRepository.findById(clienteId)
 							.orElseThrow(() -> new ValidacaoException("Cliente não encontrado."));
 		
-		List<ContatoDTO> contatoResponseDTOs = cliente.getContatos().stream()
+		List<ContatoDTO> contatoDTOs = cliente.getContatos().stream()
 				.map(ContatoMapper::fromModel)
 				.collect(Collectors.toList());
 		
-		return contatoResponseDTOs;
+		return contatoDTOs;
 	}
 
 }
