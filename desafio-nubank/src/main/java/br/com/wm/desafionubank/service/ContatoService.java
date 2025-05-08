@@ -34,5 +34,12 @@ public class ContatoService {
 		
 		return contatoSalvo;
 	}
+	
+	public void excluirContato(Long contatoId) {
+		Contato contato = contatoRepository.findById(contatoId)
+				.orElseThrow(() -> new ValidacaoException("Contato não encontrado."));
+		
+		contatoRepository.delete(contato);
+	}
 
 }

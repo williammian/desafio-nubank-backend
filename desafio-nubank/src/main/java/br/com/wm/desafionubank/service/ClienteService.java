@@ -44,5 +44,12 @@ public class ClienteService {
 		
 		return contatoDTOs;
 	}
+	
+	public void excluirCliente(Long clienteId) {
+		Cliente cliente = clienteRepository.findById(clienteId)
+				.orElseThrow(() -> new ValidacaoException("Cliente não encontrado."));
+		
+		clienteRepository.delete(cliente);
+	}
 
 }
