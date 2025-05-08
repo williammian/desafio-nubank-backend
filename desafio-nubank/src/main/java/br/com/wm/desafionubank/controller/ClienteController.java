@@ -42,11 +42,17 @@ public class ClienteController {
 		return ResponseEntity.ok(clienteService.listarTodos());
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable Long id) {
+		return ResponseEntity.ok(clienteService.buscarCliente(id));
+	}
+	
 	@GetMapping("/{id}/contatos")
 	public ResponseEntity<List<ContatoDTO>> listarContatosPorCliente(@PathVariable Long id) {
 		return ResponseEntity.ok(clienteService.listarContatosPorCliente(id));
 	}
 	
+	@Transactional
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> excluirCliente(@PathVariable Long id) {
 		clienteService.excluirCliente(id);

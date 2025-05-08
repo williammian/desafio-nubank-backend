@@ -45,6 +45,13 @@ public class ClienteService {
 		return contatoDTOs;
 	}
 	
+	public ClienteDTO buscarCliente(Long clienteId) {
+		Cliente cliente = clienteRepository.findById(clienteId)
+				.orElseThrow(() -> new ValidacaoException("Cliente não encontrado."));
+		
+		return ClienteMapper.fromModel(cliente);
+	}
+	
 	public void excluirCliente(Long clienteId) {
 		Cliente cliente = clienteRepository.findById(clienteId)
 				.orElseThrow(() -> new ValidacaoException("Cliente não encontrado."));

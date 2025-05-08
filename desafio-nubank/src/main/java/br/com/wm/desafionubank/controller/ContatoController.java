@@ -15,6 +15,7 @@ import br.com.wm.desafionubank.dto.ContatoDTO;
 import br.com.wm.desafionubank.mapper.ContatoMapper;
 import br.com.wm.desafionubank.model.Contato;
 import br.com.wm.desafionubank.service.ContatoService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -31,6 +32,7 @@ public class ContatoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(ContatoMapper.fromModel(contatoSalvo));
 	}
 	
+	@Transactional
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> excluirContato(@PathVariable Long id) {
 		contatoService.excluirContato(id);
