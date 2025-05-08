@@ -1,7 +1,25 @@
 Desafio Nubank Backend
 
+-----------------------
+
 Gerar documentação da API - Swagger UI
 
 localhost:8080/swagger-ui/index.html
 
 -----------------------
+
+Docker
+
+Via docker-compose
+
+na pasta bd
+
+rodar o comando
+
+docker-compose up -d
+
+postgres rodando na porta 5433
+
+pgadmin rodando em localhost:15433
+
+------------------------

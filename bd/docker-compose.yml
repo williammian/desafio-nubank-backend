@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nubankdb
+    ports:
+      - '5433:5432'
+    volumes:
+      - nubankdata:/var/lib/postgresql/data
+    networks:
+      - nubanknetwork
+    
+  pgadmin:
+    image: dpage/pgadmin4:8.6
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - '15433:80'
+    depends_on:
+      - db
+    networks:
+      - nubanknetwork
+
+volumes:
+    nubankdata:
+
+networks:
+  nubanknetwork:
+    driver: bridge
