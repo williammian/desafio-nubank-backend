@@ -1,1 +1,4 @@
 desafio-nubank/target/
+
+front/node_modules/
+front/build/
