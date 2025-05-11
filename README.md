@@ -77,6 +77,12 @@ Para rodar os testes:
 - PostgreSQL para ambiente local (via Docker)
 - H2 para ambiente de testes
 
+## Front
+
+- React
+- React-bootstrap
+- Axios
+
 ## Autor
 
 [William Mian](https://github.com/williammian)
